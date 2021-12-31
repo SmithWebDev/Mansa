@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_31_060306) do
+ActiveRecord::Schema.define(version: 2021_12_31_061835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accounts", force: :cascade do |t|
+    t.float "account_balance"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_accounts_on_user_id"
+  end
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -25,4 +33,15 @@ ActiveRecord::Schema.define(version: 2021_12_31_060306) do
     t.index ["ticker_symbol"], name: "index_companies_on_ticker_symbol", unique: true
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password"
+    t.string "password_confirmation"
+    t.string "username"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "accounts", "users"
 end
