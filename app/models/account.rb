@@ -14,5 +14,7 @@
 #
 
 class Account < ApplicationRecord
+  has_many :account_holdings
+  has_many :companies, through: :account_holdings
   belongs_to :user
 end

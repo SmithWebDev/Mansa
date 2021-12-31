@@ -19,5 +19,6 @@
 #
 
 class DividendHistory < ApplicationRecord
+  default_scope { order(payment_date: :desc) }
   belongs_to :company
 end
