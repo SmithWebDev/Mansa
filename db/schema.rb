@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_31_062316) do
+ActiveRecord::Schema.define(version: 2021_12_31_063553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,19 @@ ActiveRecord::Schema.define(version: 2021_12_31_062316) do
     t.index ["ticker_symbol"], name: "index_companies_on_ticker_symbol", unique: true
   end
 
+  create_table "dividend_histories", force: :cascade do |t|
+    t.float "dividend_payout_amount"
+    t.date "declaration_date"
+    t.date "exdividend_date"
+    t.date "record_date"
+    t.date "payment_date"
+    t.string "dividend_payout_frequency"
+    t.bigint "company_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_dividend_histories_on_company_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -55,4 +68,5 @@ ActiveRecord::Schema.define(version: 2021_12_31_062316) do
   add_foreign_key "account_holdings", "accounts"
   add_foreign_key "account_holdings", "companies"
   add_foreign_key "accounts", "users"
+  add_foreign_key "dividend_histories", "companies"
 end
