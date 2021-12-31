@@ -27,7 +27,7 @@ gem 'binding_of_caller', '~> 1.0'
 gem 'dotenv-rails', '~> 2.7'
 gem 'ffaker', '~> 2.18'
 gem 'stock_quote', '~> 3.0'
-#gem 'all_futures', '~> 1.0', '>= 1.0.3'
+#gem "all_futures", "~> 2.0"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
