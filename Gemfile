@@ -44,3 +44,5 @@ end
 group :development do
   gem "web-console"
 end
+
+gem "capybara", "~> 3.36"
