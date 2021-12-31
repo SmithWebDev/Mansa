@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_31_063553) do
+ActiveRecord::Schema.define(version: 2021_12_31_233031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,18 @@ ActiveRecord::Schema.define(version: 2021_12_31_063553) do
     t.index ["company_id"], name: "index_dividend_histories_on_company_id"
   end
 
+  create_table "price_histories", force: :cascade do |t|
+    t.float "low"
+    t.float "high"
+    t.float "open"
+    t.float "close"
+    t.date "day"
+    t.bigint "company_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_price_histories_on_company_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -69,4 +81,5 @@ ActiveRecord::Schema.define(version: 2021_12_31_063553) do
   add_foreign_key "account_holdings", "companies"
   add_foreign_key "accounts", "users"
   add_foreign_key "dividend_histories", "companies"
+  add_foreign_key "price_histories", "companies"
 end
