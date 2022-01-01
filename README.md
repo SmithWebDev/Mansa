@@ -1,24 +1,14 @@
-# README
+# Tuthmosis Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Project Information:
+- APIs used:
+  - IEX Cloud API `stock_quote gem`
+  - AlphaVantage API `alphavantage gem`
+- Database Tables
+  - Users
+  - Accounts
+  - Account Holdings
+  - Companies
+  - Price Histories
+  - Dividend Histories
+- Rake Task created to automate updates for company price and dividend histories. (Price History currently WIP)
