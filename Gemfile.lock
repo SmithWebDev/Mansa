@@ -144,6 +144,7 @@ GEM
     ffi (1.15.4)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    hirb (0.7.3)
     http-cookie (1.0.4)
       domain_name (~> 0.5)
     httparty (0.20.0)
@@ -308,6 +309,7 @@ DEPENDENCIES
   devise
   dotenv-rails (~> 2.7)
   ffaker (~> 2.18)
+  hirb
   importmap-rails
   jbuilder
   kredis
